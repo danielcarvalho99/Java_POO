@@ -1,0 +1,21 @@
+package teste;
+import java.util.Scanner;
+
+public class Aulas {
+
+	public static void main(String[] args) {
+		
+		Scanner teclado = new Scanner(System.in);
+		// Monitora a entrada padrão;
+		
+		System.out.println("Digite o nome do aluno:");
+		String nome = teclado.nextLine();
+		System.out.println("Digite a nota:");
+		float nota = teclado.nextFloat();
+		System.out.printf("A nota de %s é %.2f" ,nome, nota);
+		
+		// printf é um print formatado
+		// também é possível um .format
+		
+	}
+}

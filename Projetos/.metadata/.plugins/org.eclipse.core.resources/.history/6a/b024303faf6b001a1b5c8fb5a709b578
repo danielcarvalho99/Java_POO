@@ -1,0 +1,25 @@
+package poo;
+
+public class Caneta {
+	
+		String modelo;
+		String cor;
+		Boolean tampada;
+		int carga;
+		float ponta;
+		
+		void rabiscar() {
+			
+			
+		}
+		
+		void tampar() {
+			
+			
+		}
+		
+		void destampar () {
+			
+		
+		}
+}

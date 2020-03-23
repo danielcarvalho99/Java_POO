@@ -1,0 +1,44 @@
+package Aula05;
+
+import java.util.Scanner;
+
+public class Aula05 {
+	
+	
+
+	public static void main (String[] args) {
+		
+		ContaBanco conta1 = new ContaBanco();
+		ContaBanco conta2 = new ContaBanco();
+		
+		Scanner teclado = new Scanner(System.in);
+		
+		//settando
+		
+		
+		System.out.println("Digite o nome do dono:");
+		String s1 = teclado.nextLine() ;
+		
+		
+		conta1.setTipo('c');
+		conta1.setNumConta(10685702);
+		conta1.setDono(s1);
+		conta1.abrirConta();
+		conta1.detalhes();
+		conta1.sacar(20f);
+		conta1.detalhes();
+		
+		
+		System.out.println("Digite o nome do dono:");
+		String s2 = teclado.nextLine();
+		
+		conta2.setTipo('c');
+		conta2.setNumConta(10685703);
+		conta2.setDono(s2);
+		conta2.abrirConta();
+		conta2.detalhes();
+		conta2.transferencia(conta2,conta1,35f);
+		conta2.detalhes();
+		conta1.detalhes();
+	}
+}

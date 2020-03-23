@@ -1,0 +1,5 @@
+package entities.crature;
+
+public class Creature {
+
+}

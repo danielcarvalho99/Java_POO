@@ -1,0 +1,16 @@
+package teste;
+
+public class Ternario {
+	
+	public static void main(String[] argd) {
+		
+		int maior,n1,n2;
+		n1 = 2;
+		n2 = 3;
+		
+		maior = (n1>n2)?0:1;
+		System.out.println(maior);	
+		
+	}
+
+}

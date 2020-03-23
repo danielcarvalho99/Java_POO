@@ -1,0 +1,12 @@
+package teste;
+
+public class Aulas {
+
+	public static void main(String[] args) {
+		
+		String nome = "Daniel";
+		float nota = 8.5f;
+		System.out.printf("A nota de %s é %f" ,nome, nota);
+		
+	}
+}

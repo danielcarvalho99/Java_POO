@@ -1,0 +1,13 @@
+package jogo;
+
+import display.Display;
+
+/* 
+ Responsável por começar o jogo;
+  */
+
+public class Launcher {
+	public static void main(String[] args) {
+		new Display("Jogo",300,300);
+	}
+}

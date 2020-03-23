@@ -1,0 +1,28 @@
+package Aula05;
+
+public class Aula05 {
+
+	public static void main (String[] args) {
+		ContaBanco conta1 = new ContaBanco();
+		ContaBanco conta2 = new ContaBanco();
+		
+		//settando
+		conta1.setTipo('c');
+		conta1.setNumConta(10685702);
+		conta1.setDono("Daniel");
+		conta1.abrirConta();
+		conta1.detalhes();
+		conta1.sacar(20f);
+		conta1.detalhes();
+		
+		
+		conta2.setTipo('c');
+		conta2.setNumConta(10689999);
+		conta2.setDono("MinhaFofinha");
+		conta2.abrirConta();
+		conta2.detalhes();
+		conta2.transferencia(conta2,conta1,35f);
+		conta2.detalhes();
+		conta1.detalhes();
+	}
+}

@@ -1,0 +1,10 @@
+package display;
+
+import Canvas;
+
+public class Display {
+
+	/*Como criar uma janela */
+	private Jframe frame;
+	
+}

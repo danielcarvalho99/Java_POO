@@ -1,0 +1,74 @@
+package Aula05;
+
+import java.util.Scanner;
+
+public class Aula05 {
+	
+	
+
+	public static void main (String[] args) {
+		
+		ContaBanco conta1 = new ContaBanco();
+		ContaBanco conta2 = new ContaBanco();
+		
+		Scanner teclado = new Scanner(System.in);
+		
+		//settando
+		
+		
+		System.out.println("Digite o nome do dono:");
+		String s1 = teclado.nextLine() ;
+		System.out.println("Digite o numero da conta:");
+		int n1 = teclado.nextInt();
+		System.out.println("Escolhase a conta é corrente ou poupança");
+		String c1 = teclado.nextLine();
+		char tipo1 = c1.charAt(0);
+		
+		
+		conta1.setTipo(tipo1);
+		conta1.setNumConta(n1);
+		conta1.setDono(s1);
+		conta1.abrirConta();
+		conta1.detalhes();
+		
+		/*System.out.println("Gostaria de realizar um saque?");
+		
+		String alternativa = teclado.nextLine() ;
+	
+		if(alternativa =="sim") {
+		
+			System.out.println("Quanto você gostaria de sacar?");
+			
+			float saque = teclado.nextFloat();
+			conta1.detalhes();
+		}
+		
+		else {
+			System.out.println("Nenhum saque realizado");
+		} */
+		
+		
+		
+		System.out.println("Digite o nome do dono:");
+		String s2 = teclado.nextLine() ;
+		System.out.println("Digite o numero da conta:");
+		int n2 = teclado.nextInt();
+		System.out.println("Escolhase a conta é corrente ou poupança");
+		String c2 = teclado.nextLine();
+		char tipo2 = c2.charAt(0);
+		
+		conta2.setTipo(tipo2);
+		conta2.setNumConta(n2);
+		conta2.setDono(s2);
+		conta2.abrirConta();
+		conta2.detalhes();
+		
+		System.out.println("O quanto você quer transferir ");
+		float f = teclado.nextFloat();
+		
+		
+		conta2.transferencia(conta2,conta1,f);
+		conta2.detalhes();
+		conta1.detalhes();
+	}
+}
