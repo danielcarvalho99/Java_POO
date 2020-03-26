@@ -11,13 +11,17 @@ public class ContaBanco {
 	private String dono;
 	private float saldo;
 	private boolean status; // true é aberto, false é fechado
+	public boolean operacao;
 	
+	// Abre uma conta com saldo 0
 	public ContaBanco(){
 		this.status = false;
 		this.saldo = 0;
+		this.operacao = true;
 	}
 	
-	public void definirDados(ContaBanco c1) {
+	//Define os dados principais do usuário
+	public void definirDados() {
 		
 		System.out.println("Digite o nome do dono:");
 		String s2 = teclado.nextLine() ;
@@ -26,21 +30,90 @@ public class ContaBanco {
 		System.out.println("Escolha se a conta é corrente ou poupança");
 		char tipo2 = teclado.next().charAt(0);
 		
-		c1.setTipo(tipo2);
-		c1.setNumConta(n2);
-		c1.setDono(s2);
+		this.setTipo(tipo2);
+		this.setNumConta(n2);
+		this.setDono(s2);
 		
+	}
+	
+	//Responsável por escolher a operação
+	
+	public void escolha(char c) {
+		
+		if(c =='s' || c == 'S') {
+			System.out.println("Quanto você gostaria de sacar?");
+			float saque = teclado.nextFloat();
+			this.sacar(saque);
+			this.detalhes();
+		}
+		
+		 else if (c == 't' ||c == 'T') {
+			
+			ContaBanco c2 = new ContaBanco();
+			
+			c2.definirDados();
+			c2.abrirConta();
+			c2.detalhes();
+			
+			System.out.println("O quanto você quer transferir?: ");
+			
+			float f = teclado.nextFloat();
+			this.transferencia(this,c2,f);
+			this.detalhes();
+			c2.detalhes();
+		} 
+		
+		else if (c == 'd' || c == 'D') {
+			
+			System.out.println("O quanto você quer depositar?");
+			float f = teclado.nextFloat();
+			depositar(f);
+			this.detalhes();
+		}
+		
+		else if(c =='m' || c == 'M') {
+			this.pagarMensalidade();
+		}
+		
+		else {
+			System.out.println("Comando não reconhecido");
+		}
+		
+		this.novaOperacao();
+	}
+	
+	public void novaOperacao() {
+		
+	System.out.println("Deseja realizar uma outra operação?");
+	
+	char proxOperacao = teclado.next().charAt(0);
+	
+		if(proxOperacao == 'S'|| proxOperacao== 's') {
+		
+			System.out.println("---------------------------------------");
+		
+		}
+		else if(proxOperacao == 'N'|| proxOperacao== 'n') {
+			
+			this.setOperacao(false);
+			System.out.println("Operação finalizada");
+		}
+		else {
+		
+			System.out.println("Comando não reconhecido");
+			this.novaOperacao();
+		}
 	}
 	
 	public void abrirConta() {
 		
 		this.status = true;
 		
-		if(this.tipo == 'c') {
+		if(this.tipo == 'c' || this.tipo == 'C') {
 			this.saldo = (float) 50;
 			System.out.println("\nConta aberta com sucesso");
 		}
-		else if (this.tipo == 'p') {
+		else if (this.tipo == 'p' || this.tipo == 'P') {
 			this.saldo = (float)150;
 			System.out.println("\nConta aberta com sucesso");
 		}
@@ -94,9 +167,13 @@ public class ContaBanco {
 	public void pagarMensalidade() {
 			if (this.tipo == 'c') {
 				this.saldo = (float)(this.saldo - 12.0) ;
+				System.out.println("Mensalidade paga");
+				this.detalhes();
 			}
 			else if(this.tipo == 'p') {
 				this.saldo =(float) (this.saldo - 20);
+				System.out.println("Conta fechada");
+				this.detalhes();
 			}
 			else {
 				return;
@@ -153,6 +230,13 @@ public class ContaBanco {
 		return this.status;
 	}
 	
+	public void setOperacao(boolean b) {
+		this.operacao = b;
+	}
+	public boolean getOperacao() {
+		return this.operacao;
+	}
+	
 	public void detalhes() {
 		System.out.println("Sobre a conta");
 		System.out.println("Dono: " + this.getDono());
@@ -163,4 +247,12 @@ public class ContaBanco {
 		System.out.println("\n");
 	}
 	
+	public void display() {
+		System.out.println("Qual operação você gostaria de realizar?");
+		System.out.println("Saque");
+		System.out.println("Transferência");
+		System.out.println("Depósito");
+		System.out.println("Mensalidade");
+		
+	}	
 }
